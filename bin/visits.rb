@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require_relative '../lib/analizer'
+require_relative '../lib/text_formatter'
 
 begin
   stats = Analizer.new(ARGV[0])
@@ -13,7 +14,7 @@ end
 if stats.none?
   puts "No visits logged"
 else
-  formatter = StatsFormatter.new(stats)
+  formatter = TextFormatter.new(stats)
   puts "Page Views:\n#{formatter.visits}"
   puts "-" * 25
   puts "Unique Page Views:\n#{formatter.unique_visits}"
