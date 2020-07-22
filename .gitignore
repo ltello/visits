@@ -1,6 +1,9 @@
 # Ignore debugging files
 .byebug_history
 
+# Ignore test coverage output
+coverage
+
 # Ignore Rubymine files
 .idea
 

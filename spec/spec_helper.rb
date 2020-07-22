@@ -15,6 +15,9 @@
 # it.
 #
 
+require 'simplecov'
+SimpleCov.start
+
 require "analizer"
 require "text_formatter"
 
