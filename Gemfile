@@ -2,6 +2,10 @@
 
 source 'https://rubygems.org'
 
+group :development do
+  gem 'rubocop', '~> 0.85' # Ruby formatter and linter
+end
+
 group :development, :test do
   gem 'byebug' # Debugging tool
 end
