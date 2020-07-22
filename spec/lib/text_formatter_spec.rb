@@ -44,13 +44,13 @@ describe TextFormatter do
 
   describe "#visits" do
     shared_examples "a visits formatter" do
-     let(:analizer) { Analizer.new(log) }
-     subject(:formatter) { described_class.new(analizer) }
+      let(:analizer) { Analizer.new(log) }
+      subject(:formatter) { described_class.new(analizer) }
 
-     it "returns a hash counting the visits" do
-       expect(formatter.visits).to eq(expected)
-     end
-   end
+      it "returns a hash counting the visits" do
+        expect(formatter.visits).to eq(expected)
+      end
+    end
 
     context "when there are no requests" do
       let(:log) { "fixtures/empty.log" }
