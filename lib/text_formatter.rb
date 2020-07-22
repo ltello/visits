@@ -7,6 +7,10 @@ class TextFormatter < SimpleDelegator
     @visits ||= sorted_listing(super)
   end
 
+  def unique_visits
+    @unique_visits ||= sorted_listing(super)
+  end
+
   private
 
   def listing(counting, singular: :visit, plural: :visits)
