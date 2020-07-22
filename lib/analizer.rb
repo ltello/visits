@@ -2,6 +2,10 @@
 
 require_relative 'analizer/log_error'
 
+# Use Analizer class to parse a log file with requests and compute visit statistics.
+#   stats = Analizer.new("file.log")
+#   stats.visits        #=> { "/users" => 1, ..., "/posts/2": 20 }
+#   stats.unique_visits #=> { "/users" => 1, ..., "/posts/2": 9 }
 class Analizer
   attr_reader :filename, :visits, :unique_visits
 
@@ -11,6 +15,7 @@ class Analizer
     compute_stats
   end
 
+  # No requests logged in the file?
   def none?
     visits.empty?
   end
