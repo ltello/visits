@@ -20,7 +20,7 @@ describe "When there are no visits logged" do
   end
 end
 
-describe "When All Views are unique" do
+describe "When All Visits are unique" do
   let(:printed) do
     <<~PRINTED
       Page Views:
@@ -41,9 +41,9 @@ describe "When All Views are unique" do
     PRINTED
   end
 
-  let(:script) { system("./bin/visits.rb fixtures/all_views_unique.log") }
+  let(:script) { system("./bin/visits.rb fixtures/all_visits_unique.log") }
 
-  it "prints 2 similar sorted lists of views" do
+  it "prints 2 similar sorted lists of visits" do
     expect { script }.to output(printed).to_stdout_from_any_process
   end
 end
