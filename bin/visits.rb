@@ -4,8 +4,10 @@
 require_relative '../lib/analizer'
 
 begin
-  Analizer.new(ARGV[0])
+  stats = Analizer.new(ARGV[0])
 rescue Analizer::LogError => e
   puts e.message
   exit(-1)
 end
+
+puts "No visits logged" if stats.none?
