@@ -45,5 +45,35 @@ describe "When All Visits are unique" do
 
   it "prints 2 similar sorted lists of visits" do
     expect { script }.to output(printed).to_stdout_from_any_process
+    expect(script).to be_truthy
+  end
+end
+
+describe "When not all Visits are unique" do
+  let(:printed) do
+    <<~PRINTED
+      Page Views:
+      /about/2 90 visits
+      /contact 89 visits
+      /index 82 visits
+      /about 81 visits
+      /help_page/1 80 visits
+      /home 78 visits
+      -------------------------
+      Unique Page Views:
+      /contact 23 visits
+      /help_page/1 23 visits
+      /home 23 visits
+      /index 23 visits
+      /about/2 22 visits
+      /about 21 visits
+    PRINTED
+  end
+
+  let(:script) { system("./bin/visits.rb fixtures/all_sort_of_visits.log") }
+
+  it "prints sorted lists of visits" do
+    expect { script }.to output(printed).to_stdout_from_any_process
+    expect(script).to be_truthy
   end
 end
