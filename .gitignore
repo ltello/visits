@@ -1,3 +1,11 @@
+# Ignore debugging files
 .byebug_history
+
+# Ignore Rubymine files
 .idea
+
+# Ignore local RSpec setup
 .rspec-local
+
+# Ignore Profile files
+spec/examples.txt
