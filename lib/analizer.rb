@@ -36,5 +36,8 @@ class Analizer
 
   def process_request(endpoint, ip)
     visits[endpoint] += 1
+    return if requests[endpoint].include?(ip)
+    requests[endpoint] << ip
+    unique_visits[endpoint] += 1
   end
 end

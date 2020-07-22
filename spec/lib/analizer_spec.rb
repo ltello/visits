@@ -23,6 +23,46 @@ describe Analizer do
     end
   end
 
+  describe "#unique_visits" do
+    shared_examples "a unique visits counter" do
+      subject(:analizer) { described_class.new(log) }
+
+      it "returns a hash counting the unique visits" do
+        expect(analizer.unique_visits).to eq(expected)
+      end
+    end
+
+    context "when there are no requests" do
+      let(:log) { "fixtures/empty.log" }
+      let(:expected) { {} }
+
+      it_behaves_like "a unique visits counter"
+    end
+
+    context "when all requests hit the same endpoint" do
+      let(:log) { "fixtures/single_endpoint.log" }
+      let(:expected) { { "/help_page/1" => 5 } }
+
+      it_behaves_like "a unique visits counter"
+    end
+
+    context "when requests hit multiple endpoints" do
+      let(:log) { "fixtures/multiple_endpoints.log" }
+      let(:expected) do
+        {
+          "/help_page/1" => 4,
+          "/contact"     => 1,
+          "/about"       => 1,
+          "/about/2"     => 1,
+          "/index"       => 1,
+          "/home"        => 1
+        }
+      end
+
+      it_behaves_like "a unique visits counter"
+    end
+  end
+
   describe "#visits" do
     shared_examples "a visits counter" do
       subject(:analizer) { described_class.new(log) }
