@@ -10,4 +10,11 @@ rescue Analizer::LogError => e
   exit(-1)
 end
 
-puts "No visits logged" if stats.none?
+if stats.none?
+  puts "No visits logged"
+else
+  formatter = StatsFormatter.new(stats)
+  puts "Page Views:\n#{formatter.visits}"
+  puts "-" * 25
+  puts "Unique Page Views:\n#{formatter.unique_visits}"
+end
