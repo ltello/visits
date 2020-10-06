@@ -18,4 +18,6 @@ else
   puts "Page Views:\n#{formatter.visits}"
   puts "-" * 25
   puts "Unique Page Views:\n#{formatter.unique_visits}"
+  puts "-" * 25
+  puts "Average Page Views:\n#{formatter.average_visits}"
 end

@@ -38,6 +38,14 @@ describe "When All Visits are unique" do
       /about/2 1 visit
       /contact 1 visit
       /index 1 visit
+      -------------------------
+      Average Page Views:
+      /about 1 visit
+      /about/2 1 visit
+      /contact 1 visit
+      /help_page/1 1 visit
+      /home 1 visit
+      /index 1 visit
     PRINTED
   end
 
@@ -67,6 +75,14 @@ describe "When not all Visits are unique" do
       /index 23 visits
       /about/2 22 visits
       /about 21 visits
+      -------------------------
+      Average Page Views:
+      /about/2 4 visits
+      /about 3 visits
+      /contact 3 visits
+      /help_page/1 3 visits
+      /home 3 visits
+      /index 3 visits
     PRINTED
   end
 

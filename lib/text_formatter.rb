@@ -13,12 +13,16 @@ require_relative 'analizer'
 #      /users: 1 visit
 #   }
 class TextFormatter < SimpleDelegator
-  def visits
-    @visits ||= sorted_listing(super)
+  def average_visits
+    @average_visits ||= sorted_listing(super)
   end
 
   def unique_visits
     @unique_visits ||= sorted_listing(super)
+  end
+
+  def visits
+    @visits ||= sorted_listing(super)
   end
 
   private
